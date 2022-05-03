@@ -1,5 +1,6 @@
 ﻿using eTickets.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,11 @@ namespace eTickets.Data
             m.ActorId);
 
             base.OnModelCreating(modelBuilder);
+        }
+
+        internal EntityEntry Entry<T>(Task<T> entity)
+        {
+            throw new NotImplementedException();
         }
 
         public DbSet<Actor> Actors { get; set; }
